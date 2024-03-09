@@ -24,6 +24,18 @@ Public Proof of Concepts for CVE and Vulnerabilities identified by Srivishnu. He
 
 2.CVE-2024-2133 -> Bdtask Isshue Multi Store eCommerce Shopping Cart Solution Manage Sale Page manage_invoice cross site scripting
 
-3.CVE-2024-2134 -> Bdtask Hospita AutoManager up to 20240223 Investigation Report /investigation/delete/ cross-site request forgery
+3.CVE-2024-2134 -> Bdtask Hospital AutoManager up to 20240223 Investigation Report /investigation/delete/ cross-site request forgery
 
-4.CVE-2024-2135 -> Bdtask Hospita AutoManager up to 20240223 Hospital Activities Page form Description cross site scripting
+4.CVE-2024-2135 -> Bdtask Hospital AutoManager up to 20240223 Hospital Activities Page form Description cross site scripting
+
+5.CVE-2024-2274 -> Bdtask G-Prescription Gynaecology & OBS Consultation Software Prescription Dashboard Home->Index cross site scripting
+
+6.CVE-2024-2275 -> Bdtask G-Prescription Gynaecology & OBS Consultation Software OBS Patient->Gynee Prescription cross site scripting
+
+7.CVE-2024-2276 -> Bdtask G-Prescription Gynaecology & OBS Consultation Software Edit Venue Page cross site scripting
+
+8.CVE-2024-2277 -> Bdtask G-Prescription Gynaecology & OBS Consultation Software Password Reset change_password_save cross-site request forgery
+
+9.CVE-2024-2316 -> Bdtask Hospital AutoManager up to 20240227 Update Bill Page billing->bill->edit->cross-site request forgery
+
+10.CVE-2024-2317 -> Bdtask Hospital AutoManager up to 20240227 Prescription Page improper authorization
