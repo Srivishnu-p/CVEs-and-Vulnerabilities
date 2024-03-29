@@ -39,3 +39,11 @@ Public Proof of Concepts for CVE and Vulnerabilities identified by Srivishnu. He
 9.CVE-2024-2316 -> Bdtask Hospital AutoManager up to 20240227 Update Bill Page billing->bill->edit->cross-site request forgery
 
 10.CVE-2024-2317 -> Bdtask Hospital AutoManager up to 20240227 Prescription Page improper authorization
+
+11.CVE-2024-2996 -> Bdtask Multi-Store Inventory Management System up to 20240320 Page Title cross site scripting
+
+12.CVE-2024-2997 ->  Bdtask Multi-Store Inventory Management System up to 20240320 Category Name/Model Name/Brand Name/Unit Name cross site scripting
+
+13. CVE-2024-2998 -> Bdtask Multi-Store Inventory Management System up to 20240320 Store Update Page Store Name/Store Address cross site scripting
+
+14. CVE-2024-XXXX -> Bdtask M-Store- Multi-Store Inventory Management System with Full Accounts and installment Sale upto 25032024 CSRF
