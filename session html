@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qualys API with Session</title>
+</head>
+<body>
+    <h1>Login and Launch Qualys Scan</h1>
+
+    <form method="POST" action="/">
+        <!-- Login Form -->
+        <h2>Login</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <!-- Scan Form -->
+        <h2>Launch Scan</h2>
+        <label for="scan_title">Scan Title:</label>
+        <input type="text" id="scan_title" name="scan_title" required><br><br>
+        <label for="ip">IP Address:</label>
+        <input type="text" id="ip" name="ip" required><br><br>
+
+        <button type="submit">Login and Launch Scan</button>
+    </form>
+</body>
+</html>
