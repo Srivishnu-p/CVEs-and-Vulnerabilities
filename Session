@@ -1,0 +1,67 @@
+from flask import Flask, render_template, request, redirect, url_for
+import requests
+
+app = Flask(__name__)
+
+# Function to create a session using login credentials
+def create_session(username, password):
+    url = "https://qualysapi.qualys.com/api/2.0/fo/session/"
+    headers = {"X-Requested-With": "curl"}
+    data = {
+        "action": "login",
+        "username": username,
+        "password": password
+    }
+
+    # Send login request
+    response = requests.post(url, headers=headers, data=data)
+
+    if response.status_code == 200:
+        # Return the session cookies if login is successful
+        return response.cookies
+    else:
+        return None
+
+# Function to launch a scan using the session cookies
+def launch_scan(session_cookies, scan_title, ip):
+    url = "https://qualysapi.qualys.com/api/2.0/fo/scan"
+    headers = {"X-Requested-With": "curl"}
+    data = {
+        "action": "launch",
+        "scan_title": scan_title,
+        "ip": ip,
+        "option_id": "1189927123",
+        "scanner_name": "doosa"
+    }
+
+    # Send the scan request with session cookies
+    response = requests.post(url, headers=headers, data=data, cookies=session_cookies)
+
+    if response.status_code == 200:
+        return f"Scan launched successfully! Response: {response.text}"
+    else:
+        return f"Failed to launch scan. Status Code: {response.status_code}, Response: {response.text}"
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        # Get login credentials and scan details from the form
+        username = request.form['username']
+        password = request.form['password']
+        scan_title = request.form['scan_title']
+        ip = request.form['ip']
+
+        # Step 1: Create session using login credentials
+        session_cookies = create_session(username, password)
+
+        if session_cookies:
+            # Step 2: Use session to launch the scan
+            result = launch_scan(session_cookies, scan_title, ip)
+            return result
+        else:
+            return "Login failed. Please check your credentials."
+
+    return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
