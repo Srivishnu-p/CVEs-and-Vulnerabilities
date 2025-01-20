@@ -1,0 +1,37 @@
+import csv
+import ipaddress
+
+def expand_ip_ranges(ip_ranges):
+    expanded_ips = []
+    ranges = ip_ranges.split(",")
+    for ip_range in ranges:
+        if "-" in ip_range:
+            start_ip, end_ip = ip_range.split("-")
+            start = ipaddress.IPv4Address(start_ip)
+            end = ipaddress.IPv4Address(end_ip)
+            for ip in range(int(start), int(end) + 1):
+                expanded_ips.append(str(ipaddress.IPv4Address(ip)))
+        else:
+            expanded_ips.append(ip_range.strip())
+    return expanded_ips
+
+def save_to_csv(ips, output_file):
+    with open(output_file, mode="w", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow(["IP Address"])
+        for ip in ips:
+            writer.writerow([ip])
+
+# Input: Replace this string with your comma-separated IP ranges
+ip_ranges = "192.168.1.1-192.168.1.5,192.168.2.10-192.168.2.12"
+
+# Expand IP ranges
+expanded_ips = expand_ip_ranges(ip_ranges)
+
+# Output file
+output_file = "expanded_ips.csv"
+
+# Save to CSV
+save_to_csv(expanded_ips, output_file)
+
+print(f"Expanded IPs have been saved to {output_file}")
